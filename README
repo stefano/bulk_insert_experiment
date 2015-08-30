@@ -1,0 +1,34 @@
+To execute these scripts, you need a working PostgreSQL installation.
+
+The following command will drop the database and the user named
+'bulk_insert_experiment' (if they exists) and re-create them.
+
+    $ sudo -u postgres psql < create_db.sql
+
+Then you need to install the requirements and create the database schema:
+
+    $ pip install -r requirements.pip
+    $ python manage.py migrate
+
+You can now run the benchmark scripts:
+
+    $ python orm_create.py
+    ...
+
+    $ python orm_bulk_create.py
+    ...
+
+    $ python sql_simple_insert.py
+    ...
+
+    $ python sql_simple_insert_executemany.py
+    ...
+
+    $ python sql_batch_insert.py
+    ...
+
+    $ python copy_from.py
+    ...
+
+    $ python generate_data_in_database.py
+    ...
